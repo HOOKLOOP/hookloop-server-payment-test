@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "f7a3dbc4-203e-463a-8316-b8e1062d2275",
+		"name": "local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26774883",
+		"_collection_link": "https://hookloop.postman.co/workspace/hookloop-server-payment-test~cc63687c-2f09-4a10-b953-72c49a8e3249/collection/26774883-f7a3dbc4-203e-463a-8316-b8e1062d2275?action=share&creator=26774883&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"JoannaChen-payment\",\n    \"password\": \"JoannaChen-payment\",\n    \"email\": \"JoannaChen-payment@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createOrderForPayment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDhkMGRiN2UxYmMyZjdlYzUzZDM5NTAiLCJpYXQiOjE2ODY5NjU2ODcsImV4cCI6MTY4NzA1MjA4N30.o6gWJU2UQZYTpt0UmeI_btZWEGA4aXz0Q0b9nTqHT78",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"targetPlan\": \"Premium\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/v1/plans/createOrder",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"plans",
+						"createOrder"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
